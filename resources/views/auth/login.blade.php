@@ -48,16 +48,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-@php
-    $siteSetting = DB::table('site_settings')->first();
-@endphp
 <head>
     <meta charset="utf-8" />
     <title>Log In | Digital Cheap Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS, ERP, etc." name="description" />
     <meta content="Your Name" name="author" />
-    <link rel="shortcut icon" href="{{$siteSetting? $siteSetting->favicon:''}}">
     <script src="{{ asset('backend/js/config.js') }}"></script>
     <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
@@ -75,16 +71,6 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
-                                @if($siteSetting !=null)
-                                    <div class="auth-brand p-4">
-                                        <a href="{{ url('/') }}" class="logo-light">
-                                            <img src="{{$siteSetting->site_preview_image}}" alt="logo" height="80">
-                                        </a>
-                                        <a href="{{ url('/') }}" class="logo-dark">
-                                            <img src="{{$siteSetting->site_preview_image}}" alt="dark logo" height="80">
-                                        </a>
-                                    </div>
-                                @endif
                                 <div class="p-4 pt-0 my-auto">
                                     <h4 class="fs-20">Sign In</h4>
                                     <p class="text-muted mb-3">Enter your email address and password to access
@@ -109,9 +95,6 @@
                                         <div class="mb-0 text-start">
                                             <button class="btn btn-soft-primary w-100" type="submit"><i class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log In</span> </button>
                                         </div><br>
-                                        <div class="mb-0 text-start">
-                                            <a href="{{route('account.registration.for.user')}}" class="btn btn-soft-danger w-100"><i class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Join Platform</span> </a>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
